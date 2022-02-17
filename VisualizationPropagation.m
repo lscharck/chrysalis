@@ -2,7 +2,7 @@
 % 17 February 2022
 % Author: Shannon Donahue
 
-% Graphical visualization of results of propogator
+% Graphical visualization of results of propagator
 % Plot and graph attributes of CubeSat
 
 clc; clear all; close all;
