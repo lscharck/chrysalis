@@ -1,4 +1,4 @@
-%% Turn a 1x3 vector into a skew matrix
+%% Turn a 3x1 vector into a skew matrix
 function A = vec_to_skew(v)
 
     a12 = -v(3, 1);
