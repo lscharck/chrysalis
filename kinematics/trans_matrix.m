@@ -1,5 +1,5 @@
 %% Form rotation matrix c from raw Euler angles z-y-x sequence
-%% Needs input oder as [psi, theta, phi]
+%% Needs input order as [psi, theta, phi]
 function c = trans_matrix(angles)
 
     psi = angles(1);
