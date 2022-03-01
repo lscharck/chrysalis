@@ -1,12 +1,6 @@
-function [X_dot] = euler_eqs(t, X_0)
+function [X_dot] = euler_eqs(t, X_0, Ix, Iy, Iz)
 
-    % Euler's rotation equations for no applied moments and symmetric body
-
-    % get mass moment of inertia for Cubesat
-    I = MMOI;
-    Ix = I(1,1);
-    Iy = I(2,2);
-    Iz = I(3,3);
+    % Euler's rotation equations for no applied moments and symmetic body
 
     X_dot = zeros(6,1);
 
