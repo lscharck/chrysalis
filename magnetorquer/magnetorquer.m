@@ -25,8 +25,8 @@ switch (ID)
 end
 
 % Get Transformation Matrix
-eta = euler_params(4);
-eps = euler_params(1:3);
+eta = euler_params(1);
+eps = euler_params(2:4);
 C = trans_matrix(eps,eta);
 
 torque = cross((magnetorquer_max_dipole * magnetorquer_direction),C * b_field);
