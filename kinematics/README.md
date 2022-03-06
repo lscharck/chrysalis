@@ -1,6 +1,7 @@
-# Kinematics
+# SEE MODEL
+## Kinematics
 
-Code related to rotation kinematics
+Code related to rotation kinematics. Please see model for the updated version.
 
 ## Define Initial Euler Angels
 The initial Euler angles of the body in 3d space will be represented as a 3-2-1
