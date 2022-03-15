@@ -61,51 +61,6 @@ function main
 
 end
 
-function plot_disp(time, ang_disp)
-
-    % plot angular displacement about each axis
-    hold on
-    plot(time, ang_disp(:,3))
-    plot(time, ang_disp(:,2))
-    plot(time, ang_disp(:,1))
-    title("Time Evolution of Angular Displacement Vector")
-    ylabel("Angular Displacement [rad]")
-    xlabel("Time [sec]")
-    legend("x-axis", "y-axis", "z-axis")
-    %print("fig1.png", "-dpng", "-r300")
-
-end
-
-function plot_vel(time, ang_vel)
-
-    % plot angular velocity about each axis
-    hold on
-    plot(time, ang_vel(:,1))
-    plot(time, ang_vel(:,2))
-    plot(time, ang_vel(:,3))
-    title("Time Evolution of Angular Velocity Vector")
-    ylabel("Angular Velocity [rad/s]")
-    xlabel("Time [sec]")
-    legend("x-axis", "y-axis", "z-axis")
-    %print("fig2.png", "-dpng", "-r300")
-
-end
-
-function plot_mom(time, ang_mom)
-
-    % plot angular momentum about each axis
-    hold on
-    plot(time, ang_mom(:,1))
-    plot(time, ang_mom(:,2))
-    plot(time, ang_mom(:,3))
-    title("Time Evolution of Angular Momentum Vector")
-    ylabel("Angular Momentum [kg-m^2/s]")
-    xlabel("Time [sec]")
-    legend("x-axis", "y-axis", "z-axis")
-    %print("fig3.png", "-dpng", "-r300")
-
-end
-
 function plot_3d_cube(theta,varargin) %%theta in radian
 
 H=[0 0.3 0 0.3 0 0.3 0 0.3; 0 0 0.3 0.3 0 0 0.3 0.3; 0 0 0 0 0.3 0.3 0.3 0.3]; %Vertices of the cube
