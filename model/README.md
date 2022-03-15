@@ -15,7 +15,11 @@ convert the initial *Euler angles* to quaternions.This is done using the builtin
 MATLAB function. The initial angular rates are left untouched.
 
 ## Propagation
-Propagation is done using the MATLAB ode45. The equations that are propagated is
-both the kinematic and dynamic equations. The kinematic equation provides the
-angular displacement and the dynamic equation provides angular velocity. The
-output is the time history of quaternion evolution.
+Propagation is done using the MATLAB ode45. The equations that are propagated
+are both the kinematic and dynamic equations. The kinematic equation provides 
+the angular displacement and the dynamic equation provides angular velocity.
+They are coupled in the sense that the kinematic equations depend on the angular
+velocity. The output is the time history of quaternion evolution and angular
+velocity evolution. The quaternions are measured with respect to the inertial
+frame. The angular velocity is relative to the inertial frame but expressed in
+the body frame.
