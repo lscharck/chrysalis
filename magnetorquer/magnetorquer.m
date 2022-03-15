@@ -14,6 +14,7 @@
 %torque - 3 x 1 vector expressed in body frame
 
 function torque = magnetorquer(b_field,ID,euler_params)
+%Euler Params need to be eta, eps_1, eps_2, eps_3
 magnetorquer_max_dipole = 0.9; %A*m^2
 switch (ID)
     case 1
@@ -25,9 +26,7 @@ switch (ID)
 end
 
 % Get Transformation Matrix
-eta = euler_params(1);
-eps = euler_params(2:4);
-C = trans_matrix(eps,eta);
+C = trans_matrix(quat2eul(euler_params));
 
 torque = cross((magnetorquer_max_dipole * magnetorquer_direction),C * b_field);
 end

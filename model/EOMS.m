@@ -1,5 +1,5 @@
 %% Equations of motion
-function [X_dot] = EOMS(t, X, Ix, Iy, Iz)
+function [X_dot] = EOMS(t, X, Ix, Iy, Iz, Torque)
 
     X_dot = zeros(7,1); % go away. No
 
@@ -19,8 +19,8 @@ function [X_dot] = EOMS(t, X, Ix, Iy, Iz)
     X_dot(4, 1) = eps_dot(3, 1);
 
     %% Dynamics - no torque symmetric body
-    X_dot(5) = (Iy - Iz) *  X(6) * X(7) / Ix; 
-    X_dot(6) = (Iz - Ix) *  X(5) * X(7) / Iy;
-    X_dot(7) = (Ix - Iy) *  X(5) * X(6) / Iz;
+    X_dot(5) = ((Iy - Iz) *  X(6) * X(7) + Torque(1)) / Ix; 
+    X_dot(6) = ((Iz - Ix) *  X(5) * X(7) + Torque(2)) / Iy;
+    X_dot(7) = ((Ix - Iy) *  X(5) * X(6) + Torque(3)) / Iz;
 
 end
