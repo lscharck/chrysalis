@@ -11,9 +11,10 @@ function b_dot = magnetometer(bb_field_prev, b_field, x)
     % numerical derivative
     % how do I get previous time and bb_field_prev?
     % mabey this will work
-    b_dot = (bb_field - bb_field_prev) / (time_2 - time_1);
+    b_dot = (bb_field - bb_field_prev) / (time_current - time_prev);
     % need to get time from somewhere
 
     bb_field_prev = bb_field;
+    time_prev = time_current;
 
 end
