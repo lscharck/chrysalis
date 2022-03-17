@@ -43,7 +43,7 @@ function main
     %% Propagate EOMS
     tspan = [0 t]; % time span in seconds 
     options = odeset('AbsTol', 1e-10, 'RelTol', 1e-10);
-    [time, state_vec] = ode45(@(time, state_vec) EOMS(time, state_vec, Ix, Iy, Iz), tspan, X_0, options);
+    [time, state_vec] = ode45(@(time, state_vec) EOMS(time, state_vec, Ix, Iy, Iz,0), tspan, X_0, options);
 
     %% Convert quaternions back to Euler angels
     eul_angles = quat2eul(state_vec(:, 1:4));
@@ -57,10 +57,10 @@ function main
     %plot_disp(time, eul_angles)
 
     % plot angular velocity about each axis
-    %plot_vel(time, omega)
+    plot_vel(time, omega)
 
     % plot angular momentum about each axis
-    plot_mom(time, L)
+    %plot_mom(time, L)
 
 end
 
