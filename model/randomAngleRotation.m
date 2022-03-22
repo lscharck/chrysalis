@@ -7,8 +7,8 @@ theta = 2*pi*rand;
 phi = 2*pi*rand;
 
 %% Define cube
-H=[0 20 0 20 0 20 0 20; 0 0 10 10 0 0 10 10; 0 0 0 0 34.05 34.05 34.05 34.05]; %Vertices of the 6U cubesat in cm
-S=[1 2 4 3; 1 2 6 5; 1 3 7 5; 3 4 8 7; 2 4 8 6; 5 6 8 7]; %Surfaces of the cube
+H=[-10 10 -10 10 -10 10 -10 10; -5 -5 5 5 -5 -5 5 5; -17.025 -17.025 -17.025 -17.025 17.025 17.025 17.025 17.025]; % Vertices of the 6U cubesat in cm
+S=[1 2 4 3; 1 2 6 5; 1 3 7 5; 3 4 8 7; 2 4 8 6; 5 6 8 7]; % Surfaces of the cube
 
 %% Plot of stationary cube
 figure(1)
@@ -16,6 +16,7 @@ hold on
 H1 = zeros(size(S,1),4) ;
 H2 = zeros(size(S,1),4) ;
 H3 = zeros(size(S,1),4) ;
+
 xlabel('X-axis');
 ylabel('Y-axis') ;
 zlabel('Z-axis');
@@ -48,13 +49,10 @@ for i = 1:length(th)
         H1(:,j) = Rx*H(:,j); % Make changes to rotate the particular axis
     end
     for k=1:size(S,1)  
-        % Makes axes constant
-        xlabel('X-axis'); 
-        ylabel('Y-axis') ;
-        zlabel('Z-axis');
         
         Si=S(k,:); 
         fill3(H1(1,Si),H1(2,Si),H1(3,Si),'g','facealpha',0.6)
+        axis([-40 40 -40 40 -40 40])
         hold on
     end
     drawnow
