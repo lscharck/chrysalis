@@ -1,5 +1,5 @@
 # chrysalis
-(logo.jpg)
+![Image](./logo.png)
 This is the official repo for Project Monarch.
 
 A detumbling program for AUSSP.
