@@ -1,6 +1,6 @@
-# chrysalis
+# Project Monarch
 ![Image](./logo.png)
-This is the official repo for Project Monarch.
+This is chrysalis, the official repo for Project Monarch.
 
 A detumbling program for AUSSP.
 
