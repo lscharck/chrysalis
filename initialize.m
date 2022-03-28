@@ -9,9 +9,9 @@ function X_0 = intialize()
 
     % inital angular velocity
     t = pi; % time span limit
-    R = 1 / t; % z-axis
-    Q = 2 / t; % y-axis
-    P = 4 / t; % x-axis
+    R = 4; % z-axis
+    Q = 0 / t; % y-axis
+    P = 0 / t; % x-axis
     omega_initial = [P; Q; R]; % angular velocity rads/s
 
     % const mass moment of intertia

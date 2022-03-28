@@ -1,7 +1,7 @@
 %% Numerical Magnetometer Model
 %% Finite difference
 %% Returns B-dot relative to the body frame
-function b_dot = magnetometer(bb_field_prev, b_field, x)
+function output = magnetometer(time_prev, time_current, bb_field_prev, b_field, x)
     
     % transform magnetic field from inertial to body
     q = x(1:4);
@@ -11,10 +11,12 @@ function b_dot = magnetometer(bb_field_prev, b_field, x)
     % numerical derivative
     % how do I get previous time and bb_field_prev?
     % mabey this will work
-    b_dot = (bb_field - bb_field_prev) / (time_current - time_prev);
+    output.b_dot = (bb_field - bb_field_prev) / (time_current - time_prev);
     % need to get time from somewhere
 
-    bb_field_prev = bb_field;
-    time_prev = time_current;
+    output.bb_field_prev = bb_field;
+    output.time_prev = time_current;
+    
+    
 
 end

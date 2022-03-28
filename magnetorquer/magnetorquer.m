@@ -15,8 +15,7 @@
 
 function mu = magnetorquer(ID)
 %Euler Params need to be eta, eps_1, eps_2, eps_3
-%magnetorquer_max_dipole = 0.9; %A*m^2
-magnetorquer_max_dipole = 0.0; %A*m^2
+magnetorquer_max_dipole = 0.9; %A*m^2
 magnetorquer_direction = zeros(3,1);
 switch (ID)
     case 1
