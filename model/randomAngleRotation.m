@@ -49,7 +49,9 @@ for i = 1:length(th)
         H1(:,j) = Rx*H(:,j); % Make changes to rotate the particular axis
     end
     for k=1:size(S,1)  
-        
+        xlabel('X-Axis'); 
+        ylabel('Y-Axis');
+        zlabel('Z-Axis'); 
         Si=S(k,:); 
         fill3(H1(1,Si),H1(2,Si),H1(3,Si),'g','facealpha',0.6)
         axis([-40 40 -40 40 -40 40])
