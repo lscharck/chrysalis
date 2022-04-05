@@ -1,6 +1,6 @@
 # Full Model
 This is the full model of a rotating body in 3D with constant mass moment of
-inertia and no external torques applied.
+inertia and external torques applied.
 
 ## Setup
 The main function will take 2 inputs: initial angular displacement and initial
