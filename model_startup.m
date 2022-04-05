@@ -2,6 +2,7 @@
 home = pwd;
 addpath(strcat(home, '/model'));
 addpath(strcat(home, '/magnetorquer'));
+addpath(strcat(home, '/controller'));
 
 %Mass Moment of Inertia
 I = MMOI;
