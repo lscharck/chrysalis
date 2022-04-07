@@ -39,6 +39,7 @@ random_rates = margin * (-expected_rates + 2 * (expected_rates) * rand(n,3));
 %% Preparing for Monte Carlo Run
 output_rates = zeros(n,3);
 
+
 X_0 = zeros(1,7);
 X_0(1) = 1;
 
