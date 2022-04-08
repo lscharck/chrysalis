@@ -1,12 +1,17 @@
 % @Author - Justin Brouillette
 % @Date - 4/5/2022
 %% Get Run Name
-prompt = 'Enter Name For Run';
-dlgtitle = 'Name Your Run';
+prompt = {'Enter Name For Run', 'Sample Size (n = ?)', 'Margin'};
+dlgtitle = 'Run Info';
 dims = [1 35];
-definput = {'default'};
-run_name = inputdlg(prompt,dlgtitle,dims,definput);
-run_name = run_name{1};
+definput = {'default name', '0', '1.0'};
+answers = inputdlg(prompt,dlgtitle,dims,definput);
+run_name = answers{1};
+n = str2num(answers{2});
+margin = str2num(answers{3});
+if (strcmp(run_name,"default name") || n == 0)
+       msgbox('Can you change the responses please? We will try this again later.')  
+end
 run_name = strcat(run_name, '.mat');
 
 %% Adding Paths as Necessary
@@ -28,8 +33,6 @@ b_field = magnetic_field();
 %Mass Moment of Inertia
 I = MMOI;
 %% Initializing Rates with Random Calls
-% Sample size
-n = 10;
 expected_rates = deg2rad(5); %We expect 5 deg/s per axis
 margin = 2;
 
@@ -37,8 +40,8 @@ margin = 2;
 random_rates = margin * (-expected_rates + 2 * (expected_rates) * rand(n,3));
 
 %% Preparing for Monte Carlo Run
-output_rates = zeros(n,3);
-
+terminal_rates = zeros(n,3);
+total_time = zeros(n,1);
 
 X_0 = zeros(1,7);
 X_0(1) = 1;
@@ -47,15 +50,18 @@ X_0(1) = 1;
 tic
 for i = 1:n
     X_0(5:7) = random_rates(i,:);
-    sim_out = sim('intermediate_model',500);
-    output_rates(i,:) = sim_out.logsout{3}.Values.Data(end,5:7);
+    sim_out = sim('intermediate_model',1800);
+    terminal_rates(i,:) = sim_out.logsout{3}.Values.Data(end,5:7);
+    total_time(i) = sim_out.tout(end);
     toc
 end
 
 %% Save for Later Post Processing
 cd run_storage
 data_store.initial_rates = random_rates;
-data_store.output_rates = output_rates;
+data_store.terminal_rates = terminal_rates;
+data_store.total_time = total_time;
+data_store.margin = margin;
 save(run_name, 'data_store');
 cd ../
 
