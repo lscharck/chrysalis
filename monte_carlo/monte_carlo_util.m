@@ -4,11 +4,11 @@
 prompt = {'Enter Name For Run', 'Sample Size (n = ?)', 'Margin'};
 dlgtitle = 'Run Info';
 dims = [1 35];
-definput = {'default name', '0', '1.0'};
+definput = {'default name', '0', '0.0'};
 answers = inputdlg(prompt,dlgtitle,dims,definput);
 run_name = answers{1};
 n = str2num(answers{2});
-margin = str2num(answers{3});
+margin = str2num(answers{3}) + 1;
 if (strcmp(run_name,"default name") || n == 0)
        msgbox('Can you change the responses please? We will try this again later.')  
 end
@@ -34,7 +34,7 @@ b_field = magnetic_field();
 I = MMOI;
 %% Initializing Rates with Random Calls
 expected_rates = deg2rad(5); %We expect 5 deg/s per axis
-margin = 2;
+% margin = 2;
 
 %Generating a matrix of rates in the range [-margin * rates, margin * rates]
 random_rates = margin * (-expected_rates + 2 * (expected_rates) * rand(n,3));
