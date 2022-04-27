@@ -1,5 +1,5 @@
 % @Author - Justin Brouillette
-% @Date - 4/5/2022
+% @Date - 4/26/2022
 %% Get Run Name
 prompt = {'Enter Name For Run', 'Sample Size (n = ?)', 'Margin','Run Type (Rates or MMOI)'};
 dlgtitle = 'Run Info';
