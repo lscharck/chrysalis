@@ -1,18 +1,22 @@
 % @Author - Justin Brouillette
 % @Date - 4/5/2022
 %% Get Run Name
-prompt = {'Enter Name For Run', 'Sample Size (n = ?)', 'Margin'};
+prompt = {'Enter Name For Run', 'Sample Size (n = ?)', 'Margin','Run Type (Rates or MMOI)'};
 dlgtitle = 'Run Info';
 dims = [1 40];
-definput = {'default name', '0', '0.0'};
+definput = {'Default Name', '0', '0.0','No Run'};
 answers = inputdlg(prompt,dlgtitle,dims,definput);
 run_name = answers{1};
 n = str2num(answers{2});
 margin = str2num(answers{3});
-if (strcmp(run_name,"default name") || n == 0)
+run_type = answers{4};
+
+if (strcmp(run_name,"Default Name") || n == 0 || strcmp(run_type,"No Run"))
        msgbox('Can you change the responses please? We will try this again later.')  
 end
 run_name = strcat(run_name, '.mat');
+
+    
 
 %% Adding Paths as Necessary
 cd ../
@@ -54,14 +58,26 @@ for i = 1:n
     terminal_rates(i,:) = sim_out.logsout{3}.Values.Data(end,5:7);
     total_time(i) = sim_out.tout(end);
     toc
+    
+    %% Save for Later Post Processing
+    cd run_storage
+    data_store.initial_rates = random_rates;
+    data_store.terminal_rates = terminal_rates;
+    data_store.total_time = total_time;
+    data_store.margin = margin;
+    data_store.run_type = run_type;
+    save(run_name, 'data_store');
+    cd ../
+    
 end
 
-%% Save for Later Post Processing
+%% Save for Later Post Processing - Moved to loop to save the pain
 cd run_storage
 data_store.initial_rates = random_rates;
 data_store.terminal_rates = terminal_rates;
 data_store.total_time = total_time;
 data_store.margin = margin;
+data_store.run_type = run_type;
 save(run_name, 'data_store');
 cd ../
 
