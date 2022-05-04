@@ -96,7 +96,7 @@ end
 if strcmp(run_type,"MMOI")
     MMOI_tensors = cell(n,1);
     for i = 1:n
-        I = MMOI(rand(1)); %Right now, just varying MMOI for one axis, change to three later.
+        I = MMOI(rand(3,1)); %Right now, just varying MMOI for one axis, change to three later.
         fprintf("This is run number %i\n",i)
         X_0(5:7) = random_rates(i,:);
         sim_out = sim('intermediate_model',1800);
