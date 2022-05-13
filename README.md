@@ -37,5 +37,7 @@ Located in the main branch
 
 This program creates a moving picture of the CubeSat as it tumbles and eventually detumbles. By executing the "pre_processor.m" to generate the Euler angles the "randomAngleRotation.m" script can be run to draw the movie to the screen.
 
+---
+
 ### A note on Simulink versions
 The "basic_model.slx" uses MatLab version 2021b while the "intermediate_model.slx" uses MatLab version 2020b. In most cases running the "basic_model.slx" is adequate. However, the Monte Carlo framework makes use of the "intermediate_model.slx".
