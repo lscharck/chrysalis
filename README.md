@@ -6,7 +6,7 @@ A detumbling program for AUSSP's CubeSats.
 
 ## Members
 - Shannon Donahue
-- Justin Brouillette - Take 2
+- Justin Brouillette
 - Luke Scharck
 
 ---
